@@ -89,6 +89,29 @@ Core events:
 
 The Phase 1 success metric is the percentage of completed Module 1 users who answer "Yes" to: "Do you know your next financial step?"
 
+## CI/CD
+
+GitHub Actions runs the pipeline in `.github/workflows/ci-cd.yml`.
+
+On every pull request and push to `main`, the pipeline:
+
+- Installs dependencies with `npm ci`.
+- Runs `npm run lint`.
+- Runs `npm run build`.
+
+When Vercel secrets are configured, the pipeline also:
+
+- Creates a Vercel preview deployment for pull requests.
+- Deploys to Vercel production when changes are pushed to `main`.
+
+Required GitHub repository secrets:
+
+- `VERCEL_TOKEN`
+- `VERCEL_ORG_ID`
+- `VERCEL_PROJECT_ID`
+
+`VERCEL_ORG_ID` and `VERCEL_PROJECT_ID` come from the local `.vercel/project.json` file after running `vercel link`. `VERCEL_TOKEN` should be created in Vercel account settings and added as a GitHub Actions secret. Do not commit `.vercel` or token values.
+
 ## Release Checklist
 
 - Complete the full flow on desktop.
@@ -103,3 +126,4 @@ The Phase 1 success metric is the percentage of completed Module 1 users who ans
 - Confirm future modules are visible and unavailable.
 - Run `npm run lint`.
 - Run `npm run build`.
+- Confirm the GitHub Actions pipeline passes on `main`.
