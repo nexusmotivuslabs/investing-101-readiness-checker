@@ -89,24 +89,6 @@ Core events:
 
 The Phase 1 success metric is the percentage of completed Module 1 users who answer "Yes" to: "Do you know your next financial step?"
 
-## CI/CD
-
-GitHub Actions runs the pipeline in `.github/workflows/ci-cd.yml`.
-
-On every pull request and push to `main`, the pipeline:
-
-- Installs dependencies with `npm ci`.
-- Runs `npm run lint`.
-- Runs `npm run build`.
-
-Continuous deployment is handled by Vercel's Git integration:
-
-- Pull requests create Vercel preview deployments.
-- Pushes to `main` create Vercel production deployments.
-- Vercel publishes the deployment URL back to GitHub under the matching deployment environment.
-
-Deployments created manually from a local machine are visible in Vercel, but they are not automatically attached to GitHub environments.
-
 ## Release Checklist
 
 - Complete the full flow on desktop.
@@ -121,4 +103,3 @@ Deployments created manually from a local machine are visible in Vercel, but the
 - Confirm future modules are visible and unavailable.
 - Run `npm run lint`.
 - Run `npm run build`.
-- Confirm the GitHub Actions pipeline passes on `main`.
