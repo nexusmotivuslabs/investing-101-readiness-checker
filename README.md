@@ -103,6 +103,7 @@ When Vercel secrets are configured, the pipeline also:
 
 - Creates a Vercel preview deployment for pull requests.
 - Deploys to Vercel production when changes are pushed to `main`.
+- Publishes the Vercel URL to the matching GitHub environment so preview and production deployments are visible in GitHub.
 
 Required GitHub repository secrets:
 
@@ -111,6 +112,8 @@ Required GitHub repository secrets:
 - `VERCEL_PROJECT_ID`
 
 `VERCEL_ORG_ID` and `VERCEL_PROJECT_ID` come from the local `.vercel/project.json` file after running `vercel link`. `VERCEL_TOKEN` should be created in Vercel account settings and added as a GitHub Actions secret. Do not commit `.vercel` or token values.
+
+GitHub will not show Vercel preview or production deployments until `VERCEL_TOKEN` is added and the deploy job runs successfully. Deployments created manually from a local machine are visible in Vercel, but they are not automatically attached to GitHub environments.
 
 ## Release Checklist
 
