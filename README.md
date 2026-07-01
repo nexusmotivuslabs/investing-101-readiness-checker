@@ -25,6 +25,7 @@ Built as a guided learning path with four short modules. Each module uses a five
 - [Design principles](#design-principles)
 - [Adding a new module](#adding-a-new-module)
 - [What's intentionally excluded](#whats-intentionally-excluded)
+- [CI/CD](#cicd)
 - [Release checklist](#release-checklist)
 
 ---
@@ -311,6 +312,26 @@ These are deliberate scope boundaries for the educational MVP.
 
 ---
 
+## CI/CD
+
+GitHub Actions runs the pipeline in `.github/workflows/ci-cd.yml`.
+
+On every pull request and push to `main`, the pipeline:
+
+- Installs dependencies with `npm ci`
+- Runs `npm run lint`
+- Runs `npm run build`
+
+Continuous deployment is handled by Vercel's Git integration:
+
+- Pull requests create Vercel preview deployments
+- Pushes to `main` create Vercel production deployments
+- Vercel publishes the deployment URL back to GitHub under the matching deployment environment
+
+Deployments created manually from a local machine are visible in Vercel, but they are not automatically attached to GitHub environments.
+
+---
+
 ## Release checklist
 
 Before shipping a release:
@@ -326,6 +347,7 @@ Before shipping a release:
 - [ ] Confirm progress persists across page reloads
 - [ ] Run `npm run lint`
 - [ ] Run `npm run build`
+- [ ] Confirm the GitHub Actions pipeline passes on `main`
 
 ---
 
