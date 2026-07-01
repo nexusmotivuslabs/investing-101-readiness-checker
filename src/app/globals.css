@@ -192,6 +192,11 @@ input:focus-visible {
   box-shadow: var(--shadow);
 }
 
+.module-card-complete {
+  border-color: rgba(20, 107, 98, 0.35);
+  background: #f8fcfa;
+}
+
 .module-card-active {
   border-color: rgba(20, 107, 98, 0.35);
 }
@@ -382,6 +387,40 @@ input:focus-visible {
   margin-top: 28px;
 }
 
+.flow-actions-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.progress-banner {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 8px;
+  padding: 16px 0 4px;
+  border-bottom: 1px solid var(--line);
+}
+
+.progress-banner p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.progress-banner-track {
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--surface-muted);
+}
+
+.progress-banner-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent);
+  transition: width 220ms ease;
+}
+
 .privacy-note {
   margin: 22px 0 0;
   border-top: 1px solid var(--line);
@@ -559,6 +598,11 @@ input:focus-visible {
   .feedback-panel {
     align-items: stretch;
     flex-direction: column;
+  }
+
+  .flow-actions-group {
+    flex-direction: column;
+    width: 100%;
   }
 
   .flow-actions button,

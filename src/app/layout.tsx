@@ -13,8 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Investing 101 | Readiness Checker",
-  description: "A UK beginner investing readiness checker for Module 1: Before You Invest.",
+  title: "Investing 101 | UK Beginner Investor Education",
+  description:
+    "Four educational modules for UK beginner investors: readiness, accounts and tax, fees, and risk awareness.",
 };
 
 export default function RootLayout({
